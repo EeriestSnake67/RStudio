@@ -23,3 +23,12 @@ McConkey, R., Yee, E. & Lien, FS. A curated dataset for data-driven turbulence m
 This dataset has a DOI, and can be cited as:
 
 McConkey, R., Yee, E. & Lien, F. S. Turbulence modelling using machine learning: curated dataset for modelling the Reynolds stress tensor in RANS. Kaggle https://doi.org/10.34740/kaggle/dsv/2637500 (2021).
+
+
+Reference cases
+
+PHLL - Periodic hills, 5 cases with varying geometry, Xiao et al. (2020), available here
+DUCT - Square duct, 16 cases with varying Reynolds number, Pinelli et al. (2010), available here
+BUMP - Parametric bumps, 5 cases with varying geometry, Matai & Durbin (2019), available here
+CNDV - Converging-diverging channel, two cases with varying Reynolds number, Re=12600: Marquillie et al. (2008), available here, Re=20580: Schiavo et al. (2015), available here
+CBFS - Curved backward-facing step, one case, Bentaleb et al. (2011), available here
