@@ -22,42 +22,53 @@ bank_stocks <- cbind(BAC, C, GS, JPM, MS, WFC)
 # Set the column names
 colnames(bank_stocks) <- paste(rep(tickers, each = ncol(BAC)), colnames(BAC), sep = "_")
 
-# Create the candlestick chart BAC
-fig_BAC <- plot_ly(x = ~BAC$Date, type="candlestick",
-               open = ~BAC$Open, close = ~BAC$Close,
-               high = ~BAC$High, low = ~BAC$Low) %>%
-  layout(title = "Bank of America Stock Price",
-         yaxis = list(title = "BAC Stock"),
-         shapes = list(
-           list(type = "line", x0 = '2009-01-20', x1 = '2009-01-20', y0 = 0, y1 = 1, yref = "paper", line = list(color = "black")),
-           list(type = "line", x0 = '2007-12-01', x1 = '2007-12-01', y0 = 0, y1 = 1, yref = "paper", line = list(color = "black"))
-         ),
-         annotations = list(
-           list(x = '2009-01-25', y = 0.9, text = 'President Obama Took Office', showarrow = FALSE, xref='x', yref='paper', xanchor = 'left'),
-           list(x = '2007-11-25', y = 0.05, text = 'Subprime Mortgage Crisis', showarrow = FALSE, xref='x', yref='paper', xanchor = 'right')
-         ))
+# Function to create a candlestick chart for a given bank
+create_candlestick_chart <- function(bank_data, ticker) {
+  # Create the candlestick chart
+  fig <- plot_ly(x = ~bank_data$Date, type="candlestick",
+                 open = ~bank_data$Open, close = ~bank_data$Close,
+                 high = ~bank_data$High, low = ~bank_data$Low) %>%
+    layout(title = paste(ticker, "Stock Price"),
+           yaxis = list(title = paste(ticker, "Stock")),
+           shapes = list(
+             list(type = "line", x0 = '2009-01-20', x1 = '2009-01-20', y0 = 0, y1 = 1, yref = "paper", line = list(color = "black")),
+             list(type = "line", x0 = '2007-12-01', x1 = '2007-12-01', y0 = 0, y1 = 1, yref = "paper", line = list(color = "black"))
+           ),
+           annotations = list(
+             list(x = '2009-01-25', y = 0.9, text = 'President Obama Took Office', showarrow = FALSE, xref='x', yref='paper', xanchor = 'left'),
+             list(x = '2007-11-25', y = 0.05, text = 'Subprime Mortgage Crisis', showarrow = FALSE, xref='x', yref='paper', xanchor = 'right')
+           ))
+  
+  # Display the plot
+  return(fig)
+}
 
-# Display the plot
+# Call the function for BAC
+fig_BAC <- create_candlestick_chart(BAC, "Bank of America")
+
 fig_BAC
 
+# Call the function for C
+fig_C <- create_candlestick_chart(C, "CitiGroup")
 
-# Set the column names
-colnames(bank_stocks) <- paste(rep(tickers, each = ncol(C)), colnames(C), sep = "_")
-
-# Create the candlestick chart BAC
-fig_C <- plot_ly(x = ~C$Date, type="candlestick",
-                   open = ~C$Open, close = ~C$Close,
-                   high = ~C$High, low = ~C$Low) %>%
-  layout(title = "CitiGroup Stock Price",
-         yaxis = list(title = "CitiGroup Stock"),
-         shapes = list(
-           list(type = "line", x0 = '2009-01-20', x1 = '2009-01-20', y0 = 0, y1 = 1, yref = "paper", line = list(color = "black")),
-           list(type = "line", x0 = '2007-12-01', x1 = '2007-12-01', y0 = 0, y1 = 1, yref = "paper", line = list(color = "black"))
-         ),
-         annotations = list(
-           list(x = '2009-01-25', y = 0.9, text = 'President Obama Took Office', showarrow = FALSE, xref='x', yref='paper', xanchor = 'left'),
-           list(x = '2007-11-25', y = 0.05, text = 'Subprime Mortgage Crisis', showarrow = FALSE, xref='x', yref='paper', xanchor = 'right')
-         ))
-
-# Display the plot
 fig_C
+
+# Call the function for GS
+fig_GS <- create_candlestick_chart(GS, "Goldman Sachs")
+
+fig_GS
+
+# Call the function for JPM
+fig_JPM <- create_candlestick_chart(JPM, "JPMorgan Chase")
+
+fig_JPM
+
+# Call the function for MS
+fig_MS <- create_candlestick_chart(MS, "Morgan Stanley")
+
+fig_MS
+
+# Call the function for WFC
+fig_WFC <- create_candlestick_chart(WFC, "Wells Fargo")
+
+fig_WFC
