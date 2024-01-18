@@ -44,7 +44,7 @@ graph2 = open_columns_long %>%
   ggplot(aes(x=Date, y=Open, color=Bank)) +
   geom_line(size = 2, alpha = 0.75) +
   theme_solarized_2(light = FALSE) +
-  labs(title = "Bank Stock Prices",
+  labs(title = "Bank Opening Stock Prices",
        x = "Timeline",  # Add this line
        y = "Opening Price ($)") +
   theme(text = element_text(family = "DM Sans Medium", colour = "#EEEEEE"),
