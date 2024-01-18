@@ -58,7 +58,7 @@ graph2 = open_columns_long %>%
         legend.key = element_blank(),
         legend.position = "bottom",
         plot.title = element_text(hjust = 0.5)) +
-  scale_color_brewer(palette = "Pastel1") +
+  scale_color_brewer(palette = "Dark2") +
   geom_point() +
   scale_x_date(date_breaks = "1 year", date_labels = "%Y")
 
@@ -67,5 +67,5 @@ graph2.animation = graph2 +
   transition_reveal(Date) + 
   view_follow(fixed_y = TRUE)
 
-animate(graph2.animation, height = 500, width = 800, fps = 30, duration = 10,
+animate(graph2.animation, height = 1000, width = 1800, fps = 30, duration = 20,
         end_pause = 60, res = 100, renderer = gifski_renderer())
