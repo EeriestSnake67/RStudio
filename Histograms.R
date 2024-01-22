@@ -235,3 +235,27 @@ library(dataMaid)
 makeDataReport(bank_stocks, output = "html", replace = TRUE)
 
 #________automated EDA_______________________________________________________________________________________________________
+mean_BAC_Close <- mean(bank_stocks$BAC_Close, na.rm = TRUE)
+mean_C_Close <- mean(bank_stocks$C_Close, na.rm = TRUE)
+mean_GS_Close <- mean(bank_stocks$GS_Close, na.rm = TRUE)
+mean_JPM_Close <- mean(bank_stocks$JPM_Close, na.rm = TRUE)
+mean_MS_Close <- mean(bank_stocks$MS_Close, na.rm = TRUE)
+mean_WFC_Close <- mean(bank_stocks$WFC_Close, na.rm = TRUE)
+
+# Print the mean closing prices
+print(paste("Mean closing price for BAC: ", mean_BAC_Close))
+print(paste("Mean closing price for C: ", mean_C_Close))
+print(paste("Mean closing price for GS: ", mean_GS_Close))
+print(paste("Mean closing price for JPM: ", mean_JPM_Close))
+print(paste("Mean closing price for MS: ", mean_MS_Close))
+print(paste("Mean closing price for WFC: ", mean_WFC_Close))
+
+
+returns3 <- na.omit(returns2)
+returns3
+returns3$Date <- as.character(returns3$Date)
+min_dates <- apply(returns3[-1], 2, function(x) returns3$Date[which.min(x)])
+min_dates
+
+min_values <- sapply(names(min_dates), function(x) returns3[returns3$Date == min_dates[x], x])
+min_values
