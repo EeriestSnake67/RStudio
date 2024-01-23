@@ -1,11 +1,4 @@
-install.packages("tidyverse")
 library(tidyverse)
-install.packages(
-  c("arrow", "babynames", "curl", "duckdb", "gapminder", 
-    "ggrepel", "ggridges", "ggthemes", "hexbin", "janitor", "Lahman", 
-    "leaflet", "maps", "nycflights13", "openxlsx", "palmerpenguins", 
-    "repurrrsive", "tidymodels", "writexl")
-)
 library(ggrepel)
 library(dplyr)
 library(purrr)
@@ -123,7 +116,6 @@ ggplot(std_dev_df, aes(x = reorder(Ticker, StdDev), y = StdDev)) +
 #________looked at the riskiest stock in 2008, 2014, 2020____________________________________________________________________________________________________________________________________________-
 
 #moving average
-install.packages("zoo")
 library(zoo)
 BAC3$Date <- as.Date(BAC3$Date)
 
