@@ -39,6 +39,9 @@ create_ohlc_chart <- function(bank_data, ticker) {
              list(x = '2007-12-01', y = 0.1, text = 'Subprime Mortgage Crisis', showarrow = FALSE, xref='x', yref='paper', xanchor = 'right')
            ))
   
+  # Save the plot as a jpeg
+  export(fig, file = paste0("C:/Users/jmjkr/Desktop/MATES-Work/Data Science/Final/Photos/OHLC/", ticker, ".jpeg"))
+  
   # Display the plot
   return(fig)
 }

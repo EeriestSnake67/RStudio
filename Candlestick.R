@@ -38,6 +38,8 @@ create_candlestick_chart <- function(bank_data, ticker) {
              list(x = '2009-01-25', y = 0.9, text = 'President Obama Took Office', showarrow = FALSE, xref='x', yref='paper', xanchor = 'left'),
              list(x = '2007-11-25', y = 0.05, text = 'Subprime Mortgage Crisis', showarrow = FALSE, xref='x', yref='paper', xanchor = 'right')
            ))
+  # Save the plot as a jpeg
+  export(fig, file = paste0("C:/Users/jmjkr/Desktop/MATES-Work/Data Science/Final/Photos/", ticker, ".jpeg"))
   
   # Display the plot
   return(fig)
