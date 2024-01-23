@@ -16,3 +16,7 @@ JPMorgan Chase (JPM)
 Morgan Stanley (MS)
 Wells Fargo (WFC)
 "
+
+
+
+Also important note: I don't actually have 399,000 edits. That is from a code file that was used as referance in python.
