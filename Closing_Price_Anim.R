@@ -73,5 +73,7 @@ graph2 = close_columns_long %>%
   geom_text(aes(label = format(Month, "%b %Y"), y = Inf, x = Inf), hjust = 1, vjust = 2, size = 5, colour = "white", check_overlap = TRUE)
 
 # Create the animation
-animation <- animate(graph2, fps = 15, duration = 15 * 12 / 2, end_pause = 60, width = 1800, height = 1000, renderer = gifski_renderer())
-animation
+animation <- animate(graph2, fps = 10, duration = 15 * 12 / 2, end_pause = 60, width = 1800, height = 1000, renderer = gifski_renderer())
+
+# Save the animation
+gganimate::anim_save("C:/Users/jmjkr/Desktop/MATES-Work/Data Science/Final/Photos/closing_price_anim.gif", animation)
