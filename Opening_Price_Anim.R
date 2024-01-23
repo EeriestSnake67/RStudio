@@ -67,5 +67,8 @@ graph2.animation = graph2 +
   transition_reveal(Date) + 
   view_follow(fixed_y = TRUE)
 
-animate(graph2.animation, height = 1000, width = 1800, fps = 30, duration = 20,
+animation <- animate(graph2.animation, height = 1000, width = 1800, fps = 30, duration = 20,
         end_pause = 60, res = 100, renderer = gifski_renderer())
+
+# Save the animation
+gganimate::anim_save("C:/Users/jmjkr/Desktop/MATES-Work/Data Science/Final/Photos/opening_price_anim.gif", animation)
